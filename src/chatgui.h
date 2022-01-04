@@ -16,7 +16,7 @@ private:
     //// STUDENT CODE
     ////
 
-    ChatLogic *_chatLogic;
+    std::shared_ptr<ChatLogic> _chatLogic;
 
     ////
     //// EOF STUDENT CODE
@@ -27,7 +27,7 @@ public:
     ~ChatBotPanelDialog();
 
     // getter / setter
-    ChatLogic *GetChatLogicHandle() { return _chatLogic; }
+    std::shared_ptr<ChatLogic> GetChatLogicHandle() { return _chatLogic; }
 
     // events
     void paintEvent(wxPaintEvent &evt);
