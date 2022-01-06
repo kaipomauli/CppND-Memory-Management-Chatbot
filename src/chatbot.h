@@ -42,6 +42,10 @@ public:
 
     // communication
     void ReceiveMessageFromUser(std::string message);
+    ChatBot& operator=(const ChatBot& chbt)=delete;
+    ChatBot(const ChatBot& chbt)=delete;
+    ChatBot& operator=(ChatBot&& chbt);
+    ChatBot(const ChatBot&& chbt);
 };
 
 #endif /* CHATBOT_H_ */
