@@ -60,10 +60,9 @@ ChatBot& ChatBot::operator=(ChatBot&& chbt) {
     _image = std::move(chbt._image);
     _chatLogic = std::move(chbt._chatLogic);
     _rootNode = std::move(chbt._rootNode);
-    _currentNode = std::move(chbt._currentNode);
     return *this;
 }
-ChatBot::ChatBot(const ChatBot&& chbt) : _image{ std::move(chbt._image) }, _chatLogic{ std::move(chbt._chatLogic) }, _rootNode{ std::move(chbt._rootNode) }, _currentNode{ std::move(chbt._currentNode) }{
+ChatBot::ChatBot(const ChatBot&& chbt) : _image{ std::move(chbt._image) }, _chatLogic{ std::move(chbt._chatLogic) }, _rootNode { std::move(chbt._rootNode) }{
     std::cout << "ChatBot Move Constructor" << std::endl;
 }
 
