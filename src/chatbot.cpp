@@ -58,7 +58,7 @@ ChatBot::~ChatBot()
 ChatBot& ChatBot::operator=(ChatBot&& chbt) {
     std::cout << "ChatBot Move Assignment Operator" << std::endl;
     _image = chbt._image;
-    _image =nullptr;
+    chbt._image =NULL;
 
     _chatLogic = chbt._chatLogic;
 
@@ -115,7 +115,7 @@ void ChatBot::SetCurrentNode(GraphNode *node)
 {
     // update pointer to current node
     _currentNode = node;
-
+    _chatLogic->SetCurrentNodeHandle(node);
     // select a random node answer (if several answers should exist)
     std::vector<std::string> answers = _currentNode->GetAnswers();
     std::mt19937 generator(int(std::time(0)));
