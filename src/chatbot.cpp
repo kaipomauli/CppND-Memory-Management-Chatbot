@@ -49,6 +49,9 @@ ChatBot::~ChatBot()
     {
         delete _image;
         _image = NULL;
+        _chatLogic=nullptr;
+        _rootNode=nullptr;
+        _currentNode=nullptr;
     }
 }
 
@@ -57,6 +60,8 @@ ChatBot::~ChatBot()
 
 ChatBot& ChatBot::operator=(ChatBot&& chbt) {
     std::cout << "ChatBot Move Assignment Operator" << std::endl;
+    if (this==&chbt){return *this;}
+
     _image = chbt._image;
     chbt._image =NULL;
 
@@ -72,6 +77,7 @@ ChatBot& ChatBot::operator=(ChatBot&& chbt) {
 }
 ChatBot::ChatBot(const ChatBot&& chbt) : _image{ std::move(chbt._image) }, _chatLogic{ std::move(chbt._chatLogic) }, _rootNode { std::move(chbt._rootNode) }, _currentNode{ std::move(chbt._currentNode) }{
     std::cout << "ChatBot Move Constructor" << std::endl;
+    _chatLogic->SetChatbotHandle(this);
 }
 
 ////
