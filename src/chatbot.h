@@ -45,7 +45,7 @@ public:
     ChatBot& operator=(const ChatBot& chbt)=delete;
     ChatBot(const ChatBot& chbt)=delete;
     ChatBot& operator=(ChatBot&& chbt);
-    ChatBot(const ChatBot&& chbt);
+    ChatBot(ChatBot&& chbt);
 };
 
 #endif /* CHATBOT_H_ */
