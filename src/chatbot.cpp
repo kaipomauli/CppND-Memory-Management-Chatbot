@@ -57,7 +57,26 @@ ChatBot::~ChatBot()
 
 //// STUDENT CODE
 ////
+ChatBot& ChatBot::operator=(const ChatBot& chbt) {
+    std::cout << "ChatBot Copy Assignment Operator" << std::endl;
+    if (this == &chbt) { return *this; }
 
+    delete _image;
+    _image = new wxBitmap();
+    *_image = *chbt._image;      
+    *_chatLogic = *chbt._chatLogic;      
+    _rootNode = chbt._rootNode;  
+    _currentNode = chbt._currentNode;
+   
+    return *this;
+}
+ChatBot::ChatBot(const ChatBot& chbt) {
+     std::cout << "ChatBot Copy Assignment Operator" << std::endl;
+    _chatLogic = chbt._chatLogic;
+    _rootNode = chbt._rootNode;
+     _image = new wxBitmap();
+    *_image = *chbt._image;
+}
 ChatBot& ChatBot::operator=(ChatBot&& chbt) {
     std::cout << "ChatBot Move Assignment Operator" << std::endl;
     if (this==&chbt){return *this;}
